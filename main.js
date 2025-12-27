@@ -51,10 +51,12 @@ async function getWordsData() {
 
 function autoShrinkText(element) {
   const parent = element.parentElement;
+  const isMobile = window.matchMedia("(max-width: 640px)").matches;
+  const minSize = isMobile ? 4 : 6;
   
   while (
     (element.scrollHeight > parent.clientHeight || element.scrollWidth > parent.clientWidth) &&
-    parseFloat(window.getComputedStyle(element).fontSize) > 6
+    parseFloat(window.getComputedStyle(element).fontSize) > minSize
   ) {
     let currentSize = parseFloat(window.getComputedStyle(element).fontSize);
     element.style.fontSize = (currentSize - 1) + 'px';

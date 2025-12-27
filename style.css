@@ -338,14 +338,6 @@ footer {
         padding: 4px;
     }
 
-    .fade-in-text {
-        display: block;
-        max-width: 100%;
-        line-height: 1.05;
-        word-break: break-word;
-        overflow-wrap: anywhere;
-    }
-
     .solved {
         width: 100%;
         height: clamp(52px, 14vw, 80px);
