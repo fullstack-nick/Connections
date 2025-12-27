@@ -343,6 +343,18 @@ footer {
         height: clamp(52px, 14vw, 80px);
     }
 
+    .solved-category {
+        font-size: 0.75rem;
+        line-height: 1.1;
+        text-align: center;
+    }
+
+    .solved-words {
+        font-size: 0.65rem;
+        line-height: 1.1;
+        text-align: center;
+    }
+
     .mistakes {
         width: 100%;
         display: flex;
