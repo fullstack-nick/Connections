@@ -741,11 +741,14 @@ function triggerSubmit() {
 
             console.log(currentConstructin + " current " + constructingCategory + " global one");
             if (isLastCategory) {
+              clearInterval(interval);
               document.getElementById("mistakes").classList.add("none");
               document.getElementById("buttons").innerHTML = `<button class="button again" onclick="location.reload();">Play again</button>`;
-              setTimeout(() => {
-                alert("Don't be upset, you can play again!");
-              }, 10);
+              requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                  alert("Don't be upset, you can play again!");
+                });
+              });
             }
           }, (isLastCategory ? 2000 : 2500));
         }
