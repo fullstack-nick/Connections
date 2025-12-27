@@ -672,8 +672,9 @@ function triggerSubmit() {
         let currentIndex = globalCounter;
         let currentConstructin = constructingCategory;
         if (!constructedArr.includes(indexedObj[currentIndex].number)) {
+          const isLastCategory = currentIndex === indexedObj.length - 1;
 
-          if (currentIndex === indexedObj.length-1) {
+          if (isLastCategory) {
             let counter = 0;
             const int = setInterval(() => {
               if (counter < 4) {
@@ -739,18 +740,19 @@ function triggerSubmit() {
             container.insertBefore(solved_div, script);
 
             console.log(currentConstructin + " current " + constructingCategory + " global one");
-          }, (currentIndex === indexedObj.length-1 ? 2000 : 2500));
+            if (isLastCategory) {
+              document.getElementById("mistakes").classList.add("none");
+              document.getElementById("buttons").innerHTML = `<button class="button again" onclick="location.reload();">Play again</button>`;
+              setTimeout(() => {
+                alert("Don't be upset, you can play again!");
+              }, 10);
+            }
+          }, (isLastCategory ? 2000 : 2500));
         }
         globalCounter++;
         constructingCategory += 4;
       } else {
         clearInterval(interval);
-
-        document.getElementById("mistakes").classList.add("none");
-        document.getElementById("buttons").innerHTML = `<button class="button again" onclick="location.reload();">Play again</button>`;
-        setTimeout(() => {
-          alert("Don't be upset, you can play again!");
-        }, 10);
       }
     }
     

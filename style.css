@@ -365,6 +365,10 @@ footer {
         text-align: center;
     }
 
+    .mistakes.none {
+        display: none;
+    }
+
     .mistakes-info {
         display: block;
         width: 100%;
