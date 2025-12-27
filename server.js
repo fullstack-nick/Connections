@@ -5,6 +5,7 @@ export async function generateWords() {
   });
 
   const payload = await response.json();
+  console.log(payload);
   if (!response.ok) {
     const message = payload?.error || "Failed to generate words";
     throw new Error(message);
